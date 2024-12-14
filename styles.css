@@ -1,0 +1,359 @@
+/* Basic styles for the password input form */
+#password-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+#password-container h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+#password-container input {
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#password-container button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #ff4c4c;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#password-container button:hover {
+  background-color: #ff6666;
+}
+
+/* The animation container (hidden initially) */
+#animation-container {
+  display: none;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+}
+
+
+/* Style for the password container */
+#password-container {
+  position: fixed; /* Keep it centered on the screen */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  background-color: rgba(0, 0, 0, 0.7); /* Dark background with some transparency */
+  z-index: 1000; /* Ensure it's on top of other content */
+}
+
+/* Style for the password text */
+#password-text {
+  font-family: 'Cursive', 'Arial', sans-serif; /* Stylish cursive font */
+  font-size: 50px; /* Large text */
+  font-weight: bold;
+  color: #FF6F61; /* Soft coral color for a beautiful effect */
+  text-align: center; /* Center the text */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
+  background: linear-gradient(45deg, #FF6F61, #D4A5A5); /* Gradient background */
+  padding: 20px 50px; /* Padding around the text */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Shadow around the box */
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Hover effect to make the text grow slightly */
+#password-text:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* Optional: Add a fade-in effect for the password container */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#password-container {
+  animation: fadeIn 1s ease-in-out;
+}
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.frame {
+  width: 30px;
+  height: 30px;
+}
+
+canvas {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+html,
+body {
+  height: 100%;
+  /* for touch screen */
+  touch-action: none;
+}
+
+body {
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: #111;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+#drag-container,
+#spin-container {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: auto;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transform: rotateX(-10deg);
+  transform: rotateX(-10deg);
+}
+
+#drag-container img,
+#drag-container video {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  line-height: 200px;
+  font-size: 50px;
+  text-align: center;
+  -webkit-box-shadow: 0 0 8px #fff;
+  box-shadow: 0 0 8px #fff;
+  -webkit-box-reflect: below 10px linear-gradient(transparent, transparent, #0005);
+}
+
+#drag-container img:hover,
+#drag-container video:hover {
+  -webkit-box-shadow: 0 0 15px #fffd;
+  box-shadow: 0 0 15px #fffd;
+  -webkit-box-reflect: below 10px linear-gradient(transparent, transparent, #0007);
+}
+
+#drag-container p {
+  font-family: Serif;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%) rotateX(90deg);
+  transform: translate(-50%, -50%) rotateX(90deg);
+  color: #fff;
+}
+
+html,
+body {
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  background: #000;
+}
+
+canvas {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+canvas {
+  /* top: 50%; left: 50%; */
+  z-index: 1;
+  display: block;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  animation: heart 1.5s ease infinite;
+}
+
+@keyframes heart {
+  0% {
+    transform: scale(1);
+  }
+
+  30% {
+    transform: scale(0.8);
+  }
+
+  /* 60% { transform: scale(1.2); } */
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Center the password prompt */
+#password-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7); /* Dark background */
+  z-index: 1000;
+}
+
+#password-box {
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  width: 300px;
+}
+
+#password-box h2 {
+  font-family: 'Cursive', Arial, sans-serif;
+  font-size: 24px;
+  color: #FF6F61; /* Beautiful soft coral color */
+}
+
+#password-input {
+  width: 80%;
+  padding: 10px;
+  margin-top: 15px;
+  font-size: 18px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+button {
+  width: 80%;
+  padding: 10px;
+  margin-top: 20px;
+  background-color: #FF6F61;
+  color: white;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #e55a47;
+}
+
+#content-container {
+  display: none;
+}
+
+/* Optional: Fade-in effect for content */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#content-container {
+  animation: fadeIn 1s ease-in-out;
+}
+
+
+      body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        font-family: 'Lobster', cursive;
+      }
+
+      /* Center the login form */
+      #passwordPage {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* Full height of the viewport */
+        background-color: #f7f7f7;
+      }
+
+      #loginForm {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 300px; /* Set a fixed width for the login form */
+      }
+
+      h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+
+      input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+
+      button {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #ea80b0;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #f72d66;
+      }
+
+      #errorMessage {
+        color: red;
+        display: none;
+        font-size: 14px;
+        margin-top: 10px;
+      }
+
+      /* Main content (hidden initially) */
+      #mainContent {
+        display: none;
+      }
