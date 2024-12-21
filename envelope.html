@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name ```html
+="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Envelope + Letter (Open/Close on Click)</title>
+    <style>
+        :root {
+            --primary: #fff;
+            --bg-color: rgb(5, 53, 61);
+            --bg-envelope-color: #f5edd1;
+            --envelope-tab: #ecdeb8;
+            --envelope-cover: #e6cfa7;
+            --shadow-color: rgba(0, 0, 0, 0.2);
+            --txt-color: #444;
+            --heart-color: #950606; /* Heart color */
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background: var(--bg-color);
+            display: flex;
+            align-items: flex-end; /* Align items to the bottom */
+            justify-content: center;
+            height: 100vh; /* Full height */
+        }
+
+        .container {
+            display: grid;
+            place-items: center;
+            padding-bottom: 50px; /* Adjust this value to move the envelope up from the bottom */
+        }
+
+        .container > .envelope-wrapper {
+            background: var(--bg-envelope-color);
+            box-shadow: 0 0 40px var(--shadow-color);
+        }
+
+        .envelope-wrapper > .envelope {
+            position: relative;
+            width: 450px; /* Increased width */
+            height: 345px; /* Increased height */
+        }
+
+        .envelope-wrapper > .envelope::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            z-index: 2;
+            border-top: 195px solid var(--envelope-tab); /* Increased size */
+            border-right: 225px solid transparent; /* Increased size */
+            border-left: 225px solid transparent; /* Increased size */
+            transform-origin: top;
+            transition: all 0.5s ease-in-out 0.7s;
+        }
+
+        .envelope-wrapper > .envelope::after {
+            content: "";
+            position: absolute;
+            z-index: 1; /* Lower z-index to place it behind the letter */
+            width: 0px;
+            height: 0px;
+            border-top: 195px solid transparent; /* Increased size */
+            border-right: 225px solid var(--envelope-cover); /* Increased size */
+            border-bottom: 150px solid var(--envelope-cover); /* Increased size */
+            border-left: 225px solid var(--envelope-cover); /* Increased size */
+        }
+
+        .envelope > .letter {
+            position: absolute;
+            left: 50%; /* Center the letter */
+            bottom: 20px; /* Position it inside the envelope */
+            width: 80%; /* Adjusted width */
+            height: auto; /* Adjusted height */
+            background: var(--primary);
+            text-align: center;
+            transition: all 1s ease-in-out;
+            box-shadow: 0 0 5px var(--shadow-color);
+            padding: 30px 15px; /* Increased padding */
+            transform: translateX(-50%) translateY(100%); /* Hide the letter initially */
+            opacity: 0; /* Initially hidden */
+            z-index: 2; /* Default z-index for the letter */
+        }
+
+        .envelope > .letter > .text {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: var(--txt-color);
+            text-align: left;
+            font-size: 15px; /* Increased font size */
+        }
+
+        .heart {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 30px; /* Increased size */
+            height: 30px; /* Increased size */
+            background: var(--heart-color);
+            z-index: 4;
+            transform: translate(-50%, -20%) rotate(45deg); /* Start rotated */
+            transition: transform 0.5s ease-in-out;
+            box-shadow: 0 1px 6px var(--shadow-color);
+            cursor: pointer;
+        }
+
+        .heart:before,
+        .heart:after {
+            content: "";
+            position: absolute;
+            width: 30px; /* Increased size */
+            height: 30px; /* Increased size */
+            background-color: var(--heart-color);
+            border-radius: 50%;
+        }
+
+        .heart:before {
+            top: -15px;
+        }
+
+        .heart:after {
+            right:  15px; /* Adjusted for heart shape */
+        }
+
+        .flap > .envelope::before {
+            transform: rotateX(180deg);
+            z-index: 0;
+        }
+
+        .flap > .envelope::after {
+            transform: translateY(0); /* Reset to show the envelope cover correctly */
+        }
+
+        .flap > .envelope > .letter {
+            transform: translateX(-50%) translateY(-30%); /* Show the letter higher above the envelope */
+            opacity: 1; /* Make the letter visible when opened */
+            transition-delay: 1s;
+            z-index: 3; /* Ensure the letter is on top */
+        }
+
+        .flap > .heart {
+            transform: rotate(90deg); /* Rotate heart to upright position */
+            transition-delay: 0.4s;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="envelope-wrapper">
+            <div class="envelope">
+                <div class="letter">
+                    <div class="text">
+                        <h2>Dear Boyfriend,</h2>
+                        <p>
+                            When I first get to know you. I knew this is not temporary. I thought i would be good friends with you lifelong.
+                            But I got the best life partner. I know from the first moment you were a nice guy but i didn't know you would be mine.
+                            Then when you said that you like me. First time a guy told me sincerely with pure intention. I don't know when started to like you. But I know I like you the way you care the way you love.
+                            Even though i didn't find you attractive in the beginning 😂 (joke by side) now i can not even imagine a life without you. By day and day i fell in love you. i was scared i would lose you.
+                            You clearly deserve the best. i didn't know if i'm the right one but i will try best for being a good girlfriend for you and will get better. I wanted to be clear myself in my head before committing a relationship with you.
+                            I wanna be confident that we will go through all the time. The first time i saw you i knew i like you. THen when you came to my birthday i was the luckiest. No one did that much for me in my life. you are the best gift i got for my 20 birthday,
+                            i knew it's more than friends but i denied it in front of you. Now you are my boyfriend and i will always love you now and in future. No matter what happen i will always be with you.
+
+                            You are the one. The only. My everything
+                        </p>
+                    </div>
+                </div>
+                <div class="heart"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const envelope = document.querySelector('.envelope-wrapper');
+        const heart = document.querySelector('.heart');
+        heart.addEventListener('click', () => {
+            envelope.classList.toggle('flap');
+        });
+    </script>
+</body>
+</html>
