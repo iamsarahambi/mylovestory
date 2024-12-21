@@ -14,20 +14,23 @@
             margin: 0;
             background-color: black; /* Set the background color to black */
             color: white; /* Set text color to white for visibility */
+            font-family: 'Lobster', cursive; /* Use the Lobster font */
         }
 
         /* Additional styles to position the forms side by side */
         #passwordPage {
-            background-color:black;
             display: flex; /* Use flexbox to align items */
             justify-content: center; /* Center the forms horizontally */
-            align-items: stretch; /* Stretch items to fill the height */
+            align-items: center; /* Center items vertically */
             height: 100vh; /* Full height of the viewport */
+            flex-wrap: wrap; /* Allow wrapping for smaller screens */
+            padding: 20px; /* Add padding around the page */
         }
 
         #loginForm, #loginForm2 {
             color: black;
-            width: 300px; /* Set a fixed width for both forms */
+            width: 90%; /* Set a percentage width for responsiveness */
+            max-width: 300px; /* Set a maximum width for larger screens */
             padding: 20px; /* Add padding inside each form */
             background-color: white; /* Ensure the background is white */
             border-radius: 10px; /* Optional: Add rounded corners */
@@ -36,7 +39,7 @@
             flex-direction: column; /* Stack items vertically */
             align-items: center; /* Center items horizontally */
             justify-content: center; /* Center items vertically */
-            position: relative; /* Position relative for absolute positioning of the question */
+            margin: 10px; /* Add margin between forms */
         }
 
         .separator {
@@ -55,6 +58,28 @@
         input[type="password"] {
             width: 100%; /* Make the input field take full width */
             margin-bottom: 10px; /* Space below the input field */
+            padding: 10px; /* Add padding inside the input field */
+            box-sizing: border-box; /* Include padding in the element's total width */
+        }
+
+        button {
+            width: 100%; /* Make the button take full width */
+            padding: 10px; /* Add padding inside the button */
+            background-color: black; /* Set button background color */
+            color: white; /* Set button text color */
+            border: none; /* Remove default border */
+            border-radius: 5px; /* Add rounded corners */
+            cursor: pointer; /* Change cursor to pointer on hover */
+        }
+
+        button:hover {
+            background-color: #444; /* Change background color on hover */
+        }
+
+        @media (max-width: 600px) {
+            .separator {
+                display: none; /* Hide separator on small screens */
+            }
         }
     </style>
 </head>
@@ -77,7 +102,7 @@
             <h2>First time we met (DDMMYYYY)?</h2>
             <input type="password" id="passwordInput2" placeholder="Password" />
             <button onclick="checkPassword(2)">Open</button>
-            <p id="errorMessage2" style="color: red; display: none;">Incorrect password, try again.</p>
+ <p id="errorMessage2" style="color: red; display: none;">Incorrect password, try again.</p>
         </div>
     </div>
 
